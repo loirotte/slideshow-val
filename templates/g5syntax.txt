@@ -1,0 +1,56 @@
+# Slide Show (S9) Template Pack Manifest
+#
+# Change as desired/needed
+#
+# Questions? Comments?
+# Send them along to the Forum/Mailing List @ http://groups.google.com/group/webslideshow
+
+
+__file__.html5.html   html5.html.erb
+
+# http://code.google.com/p/google-code-prettify
+prettify/lang-apollo.js
+prettify/lang-css.js
+prettify/lang-hs.js
+prettify/lang-lisp.js
+prettify/lang-lua.js
+prettify/lang-ml.js
+prettify/lang-proto.js
+prettify/lang-scala.js
+prettify/lang-sql.js
+prettify/lang-vb.js
+prettify/lang-vhdl.js
+prettify/lang-wiki.js
+prettify/lang-yaml.js
+prettify/prettify.css
+prettify/prettify.js
+
+# http://tslides.html5rocks.com
+css/default.css
+css/moon.css
+css/sand.css
+css/sea_wave.css
+disclaimer.html
+
+# http://www.yanone.de/typedesign/kaffeesatz/
+ttf/YanoneKaffeesatz-Regular.ttf
+
+# http://fonts.googleapis.com
+ttf/DroidSans.ttf
+ttf/DroidSans-Mono.ttf
+
+# http://www.levien.com/type/myfonts/inconsolata.html
+ttf/Inconsolata.ttf
+
+# http://www.theleagueofmoveabletype.com/fonts/7-league-gothic
+ttf/leaguegothic-webfont.ttf
+
+# http://www.theleagueofmoveabletype.com/fonts/1-junction
+ttf/junction02-webfont.ttf
+
+
+# template for pdf generation
+# -- use html-to-pdf tool (such as wkhtmltopdf, prince, etc) to generate pdf
+# -- from javascript free web page
+
+__file__.pdf.html  slides.pdf.html.erb

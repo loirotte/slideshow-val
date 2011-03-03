@@ -7,7 +7,7 @@
 
 
 helper:
-  unparsed: [ slide, style ]
+  unparsed: [ slide, style, transition ]
   renames: [ include, class ]
   exprs: [ class, clear ]
 
@@ -45,10 +45,10 @@ markdown:
 #  the search order is first come, first serve, that is: rdiscount, rpeg-markdown, maruku, bluecloth, kramdown (fallback, always present)
 
   libs:
+    - kramdown
     - pandoc-ruby
     - rdiscount
     - rpeg-markdown
     - maruku
     - bluecloth
-    - kramdown
     

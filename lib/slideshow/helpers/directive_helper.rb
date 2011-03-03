@@ -28,6 +28,10 @@ end
 def style( params )
   "<!-- _S9STYLE_ #{params ? params : ''} -->"         
 end
+
+def transition( params )
+  "<!-- _S9TRANSITION_ #{params ? params : ''} -->"
+end
     
     
   

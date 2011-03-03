@@ -1,3 +1,7 @@
+=== 0.9.9.1 / not yet released
+
+* Laurent Vallar <val@zbla.net>: added support for latest Google HTML5 template
+
 === 0.9.8 / 2011-02-06
 
 * Added support for HTTPS and HTTP redirect for downloads

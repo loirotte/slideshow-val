@@ -2,6 +2,16 @@
 
 * http://slideshow.rubyforge.org
 
+== THIS IS NOT THE OFFICIAL SLIDE SHOW (S9) PROJECT PAGE
+
+This fork was made to provide ehanced support for a new template, called
+g5syntax available at 
+https://github.com/Val/slideshow-val/tree/master/templates and based on the
+work done for HTML5Rocks! slide site: http://slides.html5rocks.com .
+
+Gerald, if you read this, feel free to include anything you agreed on the main
+project.
+
 == DESCRIPTION:
 
 The Slide Show (S9) Ruby gem lets you create slide shows and author slides in plain text

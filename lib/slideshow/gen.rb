@@ -188,7 +188,8 @@ class Gen
     slide_source = ""
      
     content.each_line do |line|
-       if line.include?( '<!-- _S9SLIDE_' )  then
+       if line.include?( '<!-- _S9SLIDE_' ) or
+          line.include?( '<!-- _S9TRANSITION_' ) then
           if slide_counter > 0 then   # found start of new slide (and, thus, end of last slide)
             slides   << slide_source  # add slide to slide stack
             slide_source = ""         # reset slide source buffer
@@ -207,18 +208,38 @@ class Gen
     ## plus check for (css style) classes
 
     slides2 = []
+    transition = nil
+    transitioncount = 0
     slides.each do |slide_source|
       slide = Slide.new
 
       ## check for css style classes    
       from = 0
-      while (pos = slide_source.index( /<!-- _S9(SLIDE|STYLE)_(.*?)-->/m, from ))
-        logger.debug "  adding css classes from pi #{$1.downcase}: #{$2.strip}"
+      while (pos = slide_source.index( /<!-- _S9(SLIDE|STYLE|TRANSITION)_(.*?)-->/m, from ))
+        type = $1.downcase
+        klass = $2.strip
+        if $1 == 'TRANSITION'
+          transition = klass
+          transitioncount = 0
+          klass = 'middle'
+          logger.debug \
+"  adding css classes (plus middle for #{transition}) from pi #{type}: #{klass}"
+          slide.transition = transition + '-title'
+        else
+          if transition
+            transitioncount += 1
+            slide.transition = "#{transition}[#{transitioncount}]"
+            logger.debug \
+"  adding css classes (plus #{transition}) from pi #{type}: #{klass}"
+          else
+            logger.debug "  adding css classes from pi #{type}: #{klass}"
+          end
+        end
 
         if slide.classes.nil?
-          slide.classes = $2.strip
+          slide.classes = klass
         else
-          slide.classes << " #{$2.strip}"
+          slide.classes << " #{klass}"
         end
       
         from = Regexp.last_match.end(0)
@@ -253,6 +274,26 @@ class Gen
     @content  = content2   # content all-in-one    
   end
 
+  def transitions
+    transitions = {}
+    @slides.each do |slide|
+      next if slide.transition.nil?
+      logger.debug "  transition='#{slide.transition}'"
+      if slide.transition =~ /^([a-zA-Z0-9_-]+)-title$/
+        transition = $1.downcase
+        begin
+          img = slide.content.split('<img src="')[1].split('"')[0]
+          transitions[transition] = img
+          logger.debug \
+          "  found transition for slide '#{transition}' with image #{img}"
+        rescue Exception => e
+          logger.debug \
+          "  found transition for slide '#{transition}' without image"
+        end
+      end
+    end
+    transitions
+  end
 
   def create_slideshow( fn )
 

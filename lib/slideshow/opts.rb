@@ -72,7 +72,7 @@ class Opts
   end
     
   def manifest  
-    get( 'manifest', 's6.txt' )
+    get( 'manifest', 'g5syntax.txt' )
   end
   
   def config_path

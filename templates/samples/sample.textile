@@ -1,0 +1,193 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Some Headers
+title: SlideShow (S9) g5syntax
+subtitle: Advanced Google HTML5 template
+abstract: Presentation made easy using <b>textile</b>...
+author: Laurent Vallar <val@zbla.net>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+h1. Dynamic themes support 
+
+_Google "HTML5rocks!":http://slides.html5rocks.com/ presentation comes with
+some themes..._
+
+<br />
+
+h2. Currently available ones
+
+# **default**, default "HTML5rocks!":http://slides.html5rocks.com/ theme
+  (light gray blue)
+# **moon**, light gray slides over white background with smooth transitions
+# **sand**, antique white slides over brown background
+# **sea wave**, white slides over cyan gradiant background 
+
+<br />
+
+bq. **Press <span class="key">T</span> to cycle between available themes.**
+
+h1. In slide notes
+
+This slide contains two formated texts: the slide one and the notes one...
+
+bq. **Press <span class="key">N</span> to show/hide notes.**
+
+<br />
+<br />
+Notes are visible in "printer view":test.pdf.html (no auto-id anchor support
+when using @textile@ source)
+
+<div class='notes'>
+
+# first point
+# second point
+# third one...
+
+h2. Yes we can do formated text inside notes!
+
+</div>
+
+h1. Google Code Prettify usage
+
+h2. Original vs. Prettier
+
+<pre>
+#!/bin/sh -e
+read -s -p "Password: " passwd
+echo
+if [ -f "$0" ];then
+  sleep 2
+fi
+echo "You typed '$passwd'"
+</pre>
+
+<pre>
+#!/usr/bin/env ruby
+require 'highline/import'
+pass = ask("Password: ") do |q|
+ q.echo = "●"
+end
+puts "Password is '#{pass}'."
+</pre>
+
+<br />
+
+bq. **Press <span class="key">H</span> or <span class="key">B</span> to toggle
+syntax highlight.**
+
+!TRANSITION z-section
+
+h2. Transition slide
+
+Level 2 title becomes transition slide title, but watch the following image...
+
+!../Z.png(Z image)!
+
+h1. One page on "z-section"
+
+Now see how previous transition slide image is repeated without any additional
+code...
+
+h1. Another page on "z-section"
+
+h2. Be warned: the "logo" is a shadow of the original image
+
+p=. !../Z.png(Z image)!
+
+And bottom image/log can be reseted using a transition slide without any
+image....
+
+!TRANSITION y-section
+
+h2. Transition slide without image
+
+Only a subtitle, let's see what's happen on following pages...
+
+h1. One page on "y-section"
+
+There is no image at bottom of this page...
+
+h1. Another page on "y-section"
+
+... nor at this one too.
+
+!TRANSITION
+
+h2. Thanks for reading!
+
+Now some junk...
+
+h1. Textile base syntax (1/2)
+
+{% left %}
+<pre>
+h1. Textile base syntax (1/2)
+h2. Header#2
+h3. Header#3
+
+A _text_.
+Another *text*, in @Textile@.
+
+bq. A block quotation  with
+    @some code@.
+
+# normal
+# *{color:red}red* color
+## _{color:blue}blue_,
+   %{color:green}green%
+
+p<. align left
+
+p>. align right
+
+p=. centered
+
+p<>. "Link":http://link/ justified
+
+</pre>
+{% end %}
+
+{% right %}
+
+h2. Header#2
+
+h3. Header#3
+
+A _text_.
+Another *text* in @Textile@.
+
+bq. A block quotation  with
+    @some code@.
+
+# normal
+# *{color:red}red* color
+## _{color:blue}blue_,
+   %{color:green}green%
+
+p<. align left
+
+p>. align right
+
+p=. centered
+
+p<>. "Link":http://link/ justified
+
+{% end %}
+
+h1. Textile base syntax (2/2)
+
+<pre>
+table(visible center).
+|_. A |_. simple |_. table |_. ... |
+| *{color:red}red* | normal | @code@ | !http://placehold.it/64x64! |
+</pre>
+
+table(visible center).
+|_. A |_. simple |_. table |_. ... |
+| *{color:red}red* | normal | @code@ | !http://placehold.it/64x64! |
+
+<div class='slide'>
+
+h2(center). Test
+
+</div>
+

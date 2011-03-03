@@ -2,7 +2,9 @@
 <html>
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   <title><%= @headers['title'] %></title>
+   <title><%= headers['title'] %></title>
+   <meta name="description" content="<%= headers['subtitle'] %>">
+   <meta name="author" content="<%= headers['author'] %>">
    
    <%= content_for :head %>
 
@@ -36,17 +38,14 @@ ul { list-style-type: square; }
          
          border: 1px dotted black;
 
-/*      
   background: -moz-linear-gradient( top, maroon, red);
-*/
        }
 
 <%= content_for :css %>
 
-/*
-for princexml (CSS3 paged media support)
+/* for princexml (CSS3 paged media support) */
 @page { size: A4 landscape }
-*/
+
 </style>
 
 </head>
